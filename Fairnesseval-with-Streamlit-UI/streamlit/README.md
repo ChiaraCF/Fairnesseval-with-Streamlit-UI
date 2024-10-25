@@ -3,15 +3,16 @@ Here the instruction to use Fairnesseval with a UI made by Streamlit.
 # How to use
 Download the project from GitHub and open it in the development enviroment you prefer.
 Be sure to download all the requirements.
-If you occur the error "could not find fairnesseval", from you terminal write:
+
+1. If you occur the error "could not find fairnesseval", from you terminal run the following command:
 
 ``` pip install -e . ```
 
-Now write:
+2. Navigate the folders:
 
 ``` cd Fairnesseval-with-Streamlit-UI\streamlit ```. 
 
-And then:
+3. Run the command:
 
 ``` streamlit run page_welcome.py ```.
 
