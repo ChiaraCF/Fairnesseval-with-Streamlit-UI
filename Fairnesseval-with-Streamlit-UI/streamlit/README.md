@@ -5,15 +5,15 @@ Download the project from GitHub and open it in the development enviroment you p
 Be sure to download all the requirements.
 If you occur the error "could not find fairnesseval", from you terminal write:
 
-''' pip install git+https://github.com/softlab-unimore/fairnesseval.git'''
+``` pip install -e . ```
 
 Now write:
 
-''' cd Fairnesseval-with-Streamlit-UI\streamlit '''.
+``` cd Fairnesseval-with-Streamlit-UI\streamlit ```. 
 
 And then:
 
-''' streamlit run page_welcome.py '''.
+``` streamlit run page_welcome.py ```.
 
 A page on your local host should be opened: you can start to use Fairnesseval.
 
