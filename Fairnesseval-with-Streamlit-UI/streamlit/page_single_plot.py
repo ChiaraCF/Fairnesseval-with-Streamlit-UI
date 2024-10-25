@@ -5,7 +5,7 @@ from fairnesseval.graphic import utils_results_data
 from fairnesseval.graphic.graphic_demoB import plot_function_B
 
 # Directory for results
-res_dir = './demo_results'
+res_dir = 'demo_results'
 
 # Upload data
 def load_results(experiment_codes):

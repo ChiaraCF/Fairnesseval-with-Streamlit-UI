@@ -3,7 +3,8 @@ import logging
 import os
 from fairnesseval import utils_experiment_parameters as exp_params
 from fairnesseval.run import launch_experiment_by_config
-from redirect import stdout, stderr
+from redirect import stdout, stderr, stdouterr
+
 
 def pagina1():
     # List of datasets and models
@@ -58,7 +59,7 @@ def pagina1():
     # Button to run the experiment
     if st.button('Run Experiment'):
         # Check if experiment ID exists in the demo_results folder
-        results_path = './demo_results'
+        results_path = 'demo_results'
         experiment_path = os.path.join(results_path, experimentID)
 
         if os.path.exists(experiment_path):
@@ -76,7 +77,7 @@ def pagina1():
                 logger.handlers.clear()
 
             # Use the redirect class to capture stdout logs in the Streamlit log area
-            with stdout(to=log_area, format='code', max_buffer=5000, buffer_separator='\n'):
+            with stdouterr(to=log_area, format='code', max_buffer=5000, buffer_separator='\n'):
                 # Experiment configuration
                 experiment_conf = {
                     'experiment_id': experimentID,
@@ -90,26 +91,25 @@ def pagina1():
                 }
 
                 # Log the configuration before cleaning it up (formatted with new lines)
-                logger.info("Experiment configuration before cleanup (raw):")
-                for key, value in experiment_conf.items():
-                    logger.info(f"{key}: {value}")
+
+               # for key, value in experiment_conf.items():
+                #    logger.info(f"{key}: {value}")
 
                 # Remove empty values from the configuration
                 experiment_conf = {k: v for k, v in experiment_conf.items() if v}
 
                 # Log the final cleaned-up configuration (formatted with new lines)
-                logger.info("Final experiment configuration (after cleanup):")
-                for key, value in experiment_conf.items():
-                    logger.info(f"{key}: {value}")
+
+              #  for key, value in experiment_conf.items():
+               #     logger.info(f"{key}: {value}")
 
                 # Attempt to run the experiment
                 try:
-                    logger.info("Starting experiment...")
 
                     # Execute the experiment
                     launch_experiment_by_config(experiment_conf)
 
-                    logger.info("Experiment successfully completed!")
+                    st.success("Experiment successfully completed!")
                 except Exception as e:
                     logger.error(f"Error during experiment execution: {str(e)}")
 
