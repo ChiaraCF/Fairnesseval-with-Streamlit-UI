@@ -10,11 +10,11 @@ Be sure to download all the requirements.
 
 2. Navigate the folders:
 
-``` cd streamlit ```. 
+``` cd streamlit ```
 
 3. Run the command:
 
-``` streamlit run page_welcome.py ```.
+``` streamlit run page_welcome.py ```
 
 A page on your local host should be opened: you can start to use Fairnesseval.
 
